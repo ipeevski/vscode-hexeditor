@@ -34,7 +34,7 @@ export class VirtualDocument {
     public readonly documentHeight: number;
     private viewPortHeight!: number
     private hexAddrPadding: number;
-    private readonly scrollBarHandler: ScrollBarHandler;
+    // private readonly scrollBarHandler: ScrollBarHandler;
     private rows: Map<string, HTMLDivElement>[];
     /**
      * @description Constructs a VirtualDocument for a file of a given size. Also handles the initial DOM layout
@@ -112,7 +112,7 @@ export class VirtualDocument {
         rowWrappers[2].style.height = `${this.documentHeight}px`;
 
         // Creates the scrollBar Handler
-        this.scrollBarHandler = new ScrollBarHandler("scrollbar", this.fileSize / 16, this.rowHeight);
+        // this.scrollBarHandler = new ScrollBarHandler("scrollbar", this.fileSize / 16, this.rowHeight);
         // Intializes a few things such as viewport size and the scrollbar positions
         this.documentResize();
 
@@ -165,9 +165,9 @@ export class VirtualDocument {
      */
     private documentResize(): void {
         this.viewPortHeight = (window.innerHeight || document.documentElement.clientHeight);
-        if (this.scrollBarHandler) {
-            this.scrollBarHandler.updateScrollBar(this.fileSize / 16);
-        }
+        // if (this.scrollBarHandler) {
+        //     this.scrollBarHandler.updateScrollBar(this.fileSize / 16);
+        // }
     }
 
     /**
@@ -175,7 +175,7 @@ export class VirtualDocument {
      * @returns {number} the offset
      */
     public topOffset(): number {
-        return (Math.floor(this.scrollBarHandler.virtualScrollTop / this.rowHeight) * 16);
+        return (Math.floor(window.scrollY / this.rowHeight) * 16);
     }
 
     /**

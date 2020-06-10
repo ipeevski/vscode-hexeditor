@@ -241,7 +241,7 @@ export class HexEditorProvider implements vscode.CustomReadonlyEditorProvider<He
 			</div>
 		</div>
 		<div class="column left">
-			<div class="header">Memory Offset </div>
+			<div class="header">Memory Offset</div>
 			<div class="rowwrapper" id="hexaddr">
 			</div>
 		</div>
@@ -257,9 +257,7 @@ export class HexEditorProvider implements vscode.CustomReadonlyEditorProvider<He
 			<div class="rowwrapper" id="ascii">
 			</div>
 		</div>
-		<div id="scrollbar">
-			<div id="scroll-thumb">
-			</div>
+		<div class="column scroll-area">
 		</div>
 		`;
 	}
